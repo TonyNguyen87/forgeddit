@@ -10,11 +10,10 @@ Rails.application.routes.draw do
   post "posts", to: "posts#create"
 
   get "posts/:id/show", to: "posts#show", as: "posts_show"
-  
+  patch "posts/:id", to: "posts#update", as: "post"
+  get "posts/:id/edit", to: "posts#edit", as: "posts_edit"
+  delete "posts/:id", to: "posts#destroy", as: "posts_delete"
 
-  # get "posts/:id/edit", to: "posts#edit", as: "posts_edit"
-  # patch "posts/:id/edit", to: "posts#update"
-  # delete "posts/:id/edit", to: "posts#destroy"
 
   get "signups/new", to: "registrations#new", as: "new_signup"
   post "signups", to: "registrations#create", as: "signups"

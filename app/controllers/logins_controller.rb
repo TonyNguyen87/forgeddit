@@ -4,8 +4,8 @@ class LoginsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(username: params["username"],
-                         password: params["password"])
+    @user = User.find_by(username: params[:username],
+                         password: params[:password])
     if @user
       session[:user_id] = @user.id
       flash[:notice] = "You are now logged in."

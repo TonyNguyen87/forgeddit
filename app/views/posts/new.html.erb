@@ -7,7 +7,7 @@
 
     <div class="post-field">
         <%= label_tag("url") %> <br/>
-        <%= text_area_tag("url", @post.link_url) %>
+        <%= url_field_tag("link_url", @post.link_url) %>
     </div>
 
     <%= button_tag("submit") %>
