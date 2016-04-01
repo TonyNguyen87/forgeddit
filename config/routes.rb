@@ -5,6 +5,25 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  root to: "posts#index"
+  get "posts/new", to: "posts#new", as: "posts_new"
+  # post "posts", to: "posts#create", as: "posts"
+  # get "posts/:id/show", to: "posts#show", as: "posts_show"
+  # post "posts/:id/show", to: "posts#create", as: "comment_post"
+
+  # get "posts/:id/edit", to: "posts#edit", as: "posts_edit"
+  # patch "posts/:id/edit", to: "posts#update"
+  # delete "posts/:id/edit", to: "posts#destroy"
+
+  get "signups/new", to: "registrations#new", as: "new_signup"
+  post "signups", to: "registrations#create", as: "signups"
+
+  get "login", to: "logins#new", as: "login"
+  post "login", to: "logins#create"
+  delete "login", to: "logins#destroy"
+
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
