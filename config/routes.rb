@@ -7,9 +7,10 @@ Rails.application.routes.draw do
 
   root to: "posts#index"
   get "posts/new", to: "posts#new", as: "posts_new"
-  # post "posts", to: "posts#create", as: "posts"
-  # get "posts/:id/show", to: "posts#show", as: "posts_show"
-  # post "posts/:id/show", to: "posts#create", as: "comment_post"
+  post "posts", to: "posts#create"
+
+  get "posts/:id/show", to: "posts#show", as: "posts_show"
+  
 
   # get "posts/:id/edit", to: "posts#edit", as: "posts_edit"
   # patch "posts/:id/edit", to: "posts#update"

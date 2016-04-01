@@ -1,9 +1,9 @@
-<h2>Login</h2>
+<h2>LOG IN</h2>
 
 <%= form_tag(login_path) do %>
     <div class="login-field">
-        <%= label_tag("Email") %>
-        <%= text_field_tag("email") %>
+        <%= label_tag("Username") %>
+        <%= text_field_tag("username") %>
     </div>
 
     <div class="login-field">
@@ -11,7 +11,7 @@
         <%= password_field_tag("password") %>
     </div>
 
-    <%= button_tag("Submit") %>
+    <%= button_tag("LOG IN") %>
 <% end %>
 
 <%= link_to("Return to Homepage", root_path) %>

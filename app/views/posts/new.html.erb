@@ -1,0 +1,14 @@
+<%=  form_tag(posts_path) do %>
+    <div class="post-field">
+        <%= label_tag("title") %> <br/>
+        <%= text_field_tag("title", @post.title) %>
+    </div>
+
+
+    <div class="post-field">
+        <%= label_tag("url") %> <br/>
+        <%= text_area_tag("url", @post.link_url) %>
+    </div>
+
+    <%= button_tag("submit") %>
+<% end %>
