@@ -9,7 +9,9 @@
   <% @posts.each do |post| %>
 
       <li class="post">
-        <%= link_to(post.title, post.link_url) %>
+        <%= link_to(post.title, post.link_url) %> 
+        submitted <%= time_ago_in_words(post.created_at) %> ago
+        by how can i leave username here by session?
         <%= link_to("Comments", posts_show_path(post)) %>
         <% if current_user %>
         <%= link_to("Edit Post", posts_edit_path(post)) %>

@@ -13,8 +13,10 @@ Rails.application.routes.draw do
   patch "posts/:id", to: "posts#update", as: "post"
   get "posts/:id/edit", to: "posts#edit", as: "posts_edit"
   delete "posts/:id", to: "posts#destroy", as: "posts_delete"
-  post "posts/:id/comments", to: "comments#create", as: "post_comments"
 
+  post "posts/:id/comments", to: "comments#create", as: "post_comments"
+  patch "posts/:id", to: "comments#updates", as: "update_comments"
+  
   get "signups/new", to: "registrations#new", as: "new_signup"
   post "signups", to: "registrations#create", as: "signups"
 
