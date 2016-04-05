@@ -10,9 +10,9 @@
 
       <li class="post">
         <%= link_to(post.title, post.link_url) %> 
-        submitted <%= time_ago_in_words(post.created_at) %> 
+        submitted <%= time_ago_in_words(post.created_at) %> by
          <%= User.find(post.user_id).username %> 
-         <%=link_to("Comments", posts_show_path(post)) %>
+         <%=link_to("#{post.comments.count} Comments", posts_show_path(post)) %>
         <% if current_user %>
         <%= link_to("Edit Post", posts_edit_path(post)) %>
         <%= link_to("Delete Post", posts_delete_path(post), method: :delete) %>
