@@ -8,7 +8,7 @@
 
 <div class="comments-form">
     <h3>top 200 comments</h3>
-    <%= form_tag(post_comments_path(@post.id)) do %>
+    <%= form_tag(post_comment_path(@post.id)) do %>
           <div class="comment-field">
           <%= text_area_tag("body", nil, cols: 40, rows: 8) %>
       </div>
@@ -20,9 +20,11 @@
 <div class="comments">
   <% @post.comments.each do |comment| %>
       <div class="post-comment">
-          <%= simple_format(comment.body) %> 
-          <%= User.find(comment.user_id).username %> 
-      <%= time_ago_in_words(comment.created_at) %> ago
+        <%= User.find(comment.user_id).username %> 
+        <%= time_ago_in_words(comment.created_at) %> ago
+        <%= simple_format(comment.body) %>
+        <%= link_to("Edit", edit_comment_path(@post.id, comment.id)) %>
+        <%= link_to("Delete", delete_comment_path(@post.id, comment.id), method: :delete) %>
       </div>
   <% end %>
 </div>

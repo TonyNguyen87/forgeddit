@@ -10,13 +10,15 @@ Rails.application.routes.draw do
   post "posts", to: "posts#create"
 
   get "posts/:id/show", to: "posts#show", as: "posts_show"
-  patch "posts/:id", to: "posts#update", as: "post"
+  put "posts/:id", to: "posts#update", as: "post"
   get "posts/:id/edit", to: "posts#edit", as: "posts_edit"
   delete "posts/:id", to: "posts#destroy", as: "posts_delete"
 
-  post "posts/:id/comments", to: "comments#create", as: "post_comments"
-  patch "posts/:id", to: "comments#updates", as: "update_comments"
-  
+  post "posts/:id", to: "comments#create", as: "post_comment"
+  get "posts/:id/show/:comment_id/edit", to: "comments#edit", as: "edit_comment"
+  patch "posts/:id/show/:comment_id/edit", to: "comments#update", as: "update_comment"
+  delete "posts/:id/show/:comment_id", to: "comments#destroy", as: "delete_comment"
+
   get "signups/new", to: "registrations#new", as: "new_signup"
   post "signups", to: "registrations#create", as: "signups"
 

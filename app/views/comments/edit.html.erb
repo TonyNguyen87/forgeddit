@@ -1,0 +1,8 @@
+
+<%= form_tag(update_comment_path(@post.id, @comment.id), method: :patch) do %>
+	<div class="comment-field">
+		<%= label_tag("comment: ") %>
+		<%= text_field_tag("comment", @comment.body) %>
+	</div>
+	<%= button_tag("Update") %>
+<% end %>
