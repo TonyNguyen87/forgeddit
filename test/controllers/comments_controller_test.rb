@@ -16,10 +16,11 @@ class CommentsControllerTest < ActionController::TestCase
 	}
 	end
 
-	test "authorized users can comment" do
+	test "authorized users can create comment" do
 	sign_in(:tony)
-	patch :update, comment: {
-					body: "hello"
+	patch :update, { id: posts(:reddit).id,
+					comment_id: 42,
+					body: "Hello"
 	}
 	assert_redirected_to posts_show_path
 	end

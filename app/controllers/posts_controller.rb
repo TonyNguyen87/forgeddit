@@ -1,7 +1,10 @@
+require "pry"
+
 class PostsController < ApplicationController
 	before_action :authenticate!, except: [:index, :new, :show]
 	def index
 		@posts = Post.all
+    # @posts = Post.page(params[:page]).per(2)
 		render :index
 	end
 
@@ -17,9 +20,9 @@ class PostsController < ApplicationController
 
 	def create
 		@post = current_user.posts.new(title: params["title"],
-									link_url: params["link_url"])
+									link_url: params["link_url"],
+                  user_id: current_user.id)
 		@post.save
-		# binding.pry
 		redirect_to :root
 	end
 

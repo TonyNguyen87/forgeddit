@@ -11,7 +11,7 @@
       <li class="post">
         <%= link_to(post.title, post.link_url) %> 
         submitted <%= time_ago_in_words(post.created_at) %> by
-         <%= Post.user.first_name %> 
+         <%= post.user.username %> 
          <%=link_to("#{post.comments.count} Comments", posts_show_path(post)) %>
         <% if current_user %>
         <%= link_to("Edit", posts_edit_path(post)) %>
