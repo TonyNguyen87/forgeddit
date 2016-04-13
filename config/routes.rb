@@ -5,6 +5,14 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  # resources :posts do
+  #   resources :votes, only: [:post]
+  # end
+
+  # resources :comments do
+  #   resources :votes, only: [:comment]
+  # end
+
   root to: "posts#index"
   get "posts/new", to: "posts#new", as: "posts_new"
   post "posts", to: "posts#create"
@@ -26,6 +34,8 @@ Rails.application.routes.draw do
   post "login", to: "logins#create"
   delete "login", to: "logins#destroy"
 
+  post "vote/comment", to: "votes#comment"
+  post "vote/post", to: "votes#post"
 
 
   # Example of regular route:

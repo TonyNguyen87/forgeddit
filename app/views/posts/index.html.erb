@@ -9,6 +9,8 @@
   <% @posts.each do |post| %>
 
       <li class="post">
+        <%= link_to(“Good post!”, post_votes_path(post, score: 1), method: :post) %>
+        <%= link_to(“Bad post!”, post_votes_path(post, score: -1), method: :post) %>
         <%= link_to(post.title, post.link_url) %> 
         submitted <%= time_ago_in_words(post.created_at) %> by
          <%= post.user.username %> 
