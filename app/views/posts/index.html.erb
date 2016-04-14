@@ -1,6 +1,7 @@
 <% if current_user %>
 <%= link_to("Submit a new link", posts_new_path) %></br>
 <% end %>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <h1>FORGEDDIT</h1>
 
@@ -9,8 +10,8 @@
   <% @posts.each do |post| %>
 
       <li class="post">
-        <%= link_to("Good", vote_path(post, score: 1), method: :post) %>
-        <%= link_to("Bad", vote_path(post, score: -1), method: :post) %>
+       <i class="material-icons"> <%= link_to("Good", vote_path(post, score: 1), method: :post) %> </i>
+       <i class="material-icons"> <%= link_to("Bad", vote_path(post, score: -1), method: :post) %> </i>
         (<%= post.votes.sum(:score) %> points)
         <%= link_to(post.title, post.link_url) %> 
         submitted <%= time_ago_in_words(post.created_at) %> by
