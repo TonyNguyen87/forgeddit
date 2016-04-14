@@ -27,10 +27,11 @@ class CommentsControllerTest < ActionController::TestCase
 	end
 
 	test "authorized user can delete comment" do
-	current_user = sign_in(:tony)
+	sign_in(:tony)
 	delete :destroy, { id: posts(:reddit).id,
 					   comment_id: comments(:reddit).id
 					}
-	assert_redirected_to posts_show_path(@post)
+	# assigns(:post)
+	assert_redirected_to posts_show_path(posts(:reddit))
 	end
 end
