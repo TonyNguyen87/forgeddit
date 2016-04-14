@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 	end
 
 	def create
+    binding.pry
 		@post = current_user.posts.new(title: params["title"],
 									link_url: params["link_url"],
                   user_id: current_user.id)

@@ -34,8 +34,9 @@ Rails.application.routes.draw do
   post "login", to: "logins#create"
   delete "login", to: "logins#destroy"
 
-  post "vote/comment", to: "votes#comment"
-  post "vote/post", to: "votes#post"
+  # post "posts/:id/show/:comment_id/vote", to: "votes#comment"
+  post "posts/:id/vote", to: "votes#create", as: "vote"
+
 
 
   # Example of regular route:
