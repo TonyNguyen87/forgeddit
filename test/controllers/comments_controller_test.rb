@@ -1,4 +1,5 @@
 require "test_helper"
+require "pry"
 
 class CommentsControllerTest < ActionController::TestCase
 
@@ -19,14 +20,17 @@ class CommentsControllerTest < ActionController::TestCase
 	test "authorized users can create comment" do
 	sign_in(:tony)
 	patch :update, { id: posts(:reddit).id,
-					comment_id: 42,
-					body: "Hello"
-	}
+					comment_id: comments(:reddit).id,
+					body: "goodbye"
+					}
 	assert_redirected_to posts_show_path
 	end
 
-	test "can delete comment" do
-	delete :destroy
-	assert_redirected_to "posts/:id/show"
+	test "authorized user can delete comment" do
+	current_user = sign_in(:tony)
+	delete :destroy, { id: posts(:reddit).id,
+					   comment_id: comments(:reddit).id
+					}
+	assert_redirected_to posts_show_path(@post)
 	end
 end

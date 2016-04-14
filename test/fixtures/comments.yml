@@ -5,3 +5,6 @@
 # below each fixture, per the syntax in the comments below
 #
 
+reddit:
+ body: hello
+ user: tony
