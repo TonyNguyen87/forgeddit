@@ -1,5 +1,3 @@
-require "pry"
-
 class PostsController < ApplicationController
 	before_action :authenticate!, except: [:index, :new, :show]
 	def index
